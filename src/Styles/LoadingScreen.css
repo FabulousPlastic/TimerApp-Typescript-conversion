@@ -16,3 +16,22 @@
   font-size: 1.2em;
   margin-top: 20px;
 }
+/* LoadingScreen.css */
+.loading-screen {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #ecf0f1;
+}
+
+.iiIts,
+.time-logo,
+.time-logo-crash {
+  max-width: 80%;
+  max-height: 80%;
+  position: absolute;
+}
