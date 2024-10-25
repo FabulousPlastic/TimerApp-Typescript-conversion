@@ -59,13 +59,13 @@ const App = () => {
       {/* Burger menu button */}
       {currentView !== 'loading' &&
         currentView !== 'menu' &&
-        currentView !== 'setTimer' &&
         currentView !== 'alarm' && (
           <button className="burger-menu" onClick={handleMenu}>
             ☰
           </button>
         )}
     </>
+
   );
 };
 

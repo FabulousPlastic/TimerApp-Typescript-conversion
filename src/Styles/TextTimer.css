@@ -1,13 +1,16 @@
-/* src/Styles/TextTimer.css */
+/* TextTimer.css */
 .text-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   text-align: center;
+  background-color: #f0f0f0;
   padding: 20px;
-  background-color: black;
-  color: yellow;
-  overflow: hidden;
 }
 
-.text-timer h2 {
+h2 {
   font-size: 24px;
   margin-bottom: 10px;
 }
@@ -17,58 +20,21 @@
   margin-bottom: 20px;
 }
 
-.crawl {
-  position: relative;
-  height: 200px;
-  perspective: 400px;
-  overflow: hidden;
-}
-
-.content {
-  position: absolute;
-  top: 100%;
-  width: 100%;
-  transform-origin: 50% 100%;
-  animation: crawl 60s linear infinite;
-}
-
-.content p {
-  font-size: 24px;
-  text-align: center;
-  line-height: 1.5;
-}
-
-@keyframes crawl {
-  0% {
-    top: 100%;
-    transform: rotateX(20deg) translateZ(0);
-  }
-  100% {
-    top: -200%;
-    transform: rotateX(25deg) translateZ(-500px);
-  }
-}
-
-button {
-  padding: 10px 20px;
+.time-display {
   font-size: 18px;
-  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-@media (max-width: 480px) {
-  .text-timer h2 {
-    font-size: 20px;
-  }
+.time-section {
+  display: flex;
+  align-items: baseline;
+}
 
-  .repeat-counter {
-    font-size: 16px;
-  }
-
-  .content p {
-    font-size: 18px;
-  }
-
-  button {
-    font-size: 16px;
-  }
+.label {
+  margin-left: 5px;
+  font-size: 18px;
 }

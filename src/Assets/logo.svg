@@ -1,0 +1,17 @@
+<svg width="300" height="100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="100" fill="#282828" />
+  
+  <!-- Clock graphic -->
+  <circle cx="50" cy="50" r="30" fill="#FF5733" />
+  <line x1="50" y1="50" x2="50" y2="20" stroke="#FFF" stroke-width="3" />
+  <line x1="50" y1="50" x2="70" y2="50" stroke="#FFF" stroke-width="3" />
+
+  <!-- Main text -->
+  <text x="100" y="55" font-family="Arial, sans-serif" font-size="36" fill="#FFF" font-weight="bold">
+    IIIIiiiiiiiit's
+  </text>
+  <text x="100" y="85" font-family="Arial, sans-serif" font-size="48" fill="#FF5733" font-weight="bold">
+    TIME
+  </text>
+</svg>

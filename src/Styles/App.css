@@ -1,24 +1,49 @@
-/* src/Styles/App.css */
+/* App.css */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #ecf0f1;
 }
 
+button {
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Hover effect */
+button:hover {
+  background-color: #333;
+  transform: scale(1.05);
+}
+
+/* Active (push) effect */
+button:active {
+  transform: scale(0.95);
+}
+
+/* Specific button styles (optional) */
 .burger-menu {
   position: fixed;
   top: 10px;
-  right: 10px;
-  font-size: 30px;
+  left: 10px;
+  font-size: 24px;
   background: none;
   border: none;
   cursor: pointer;
+  color: #000;
+  z-index: 1; /* Ensure it appears above other elements */
 }
 
 @media (max-width: 480px) {
   .burger-menu {
     font-size: 26px;
     top: 5px;
-    right: 5px;
+    left: 5px;
   }
 }

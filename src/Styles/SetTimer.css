@@ -1,67 +1,97 @@
-/* src/Styles/SetTimer.css */
+/* SetTimer.css */
 .set-timer {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
   text-align: center;
+  background-color: #f9f9f9;
+  padding: 30px;
+  box-sizing: border-box;
+  position: relative;
 }
 
-.set-timer h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
+.input-group {
+  margin-bottom: 20px; /* Increase spacing between input groups */
 }
 
-.set-timer form {
+.time-input {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px; /* Increase gap between the time inputs */
+  margin-bottom: 10px; /* Increase spacing from the next section */
+}
+
+.time-labels {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px; /* Match the gap with time-input */
+  margin-bottom: 30px; /* Add more space below labels */
+}
+
+.scrollable-number {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.input-group {
-  margin-bottom: 15px;
-  width: 100%;
+.number-display {
+  font-size: 36px; /* Increase font size for better readability */
+  font-weight: bold;
+  margin: 10px 0;
 }
 
-.input-group label {
-  font-size: 18px;
-  margin-bottom: 5px;
-  display: block;
+.time-label {
+  font-size: 18px; /* Increase the font size of labels */
 }
 
-.inputs {
-  display: flex;
-  justify-content: center;
-}
-
-.inputs input {
-  width: 80px;
-  padding: 10px;
-  font-size: 16px;
-  margin: 0 5px;
-}
-
-input[type='number'] {
-  -moz-appearance: textfield;
-}
-
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-button[type='submit'] {
-  padding: 10px 20px;
-  font-size: 18px;
+.arrow-button {
   cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 20px;
+  padding: 0;
 }
 
-@media (max-width: 480px) {
-  .inputs input {
-    width: 60px;
-    padding: 8px;
-    font-size: 14px;
-  }
+.start-timer-button {
+  padding: 20px 40px; /* Add more padding for a bigger button */
+  font-size: 20px; /* Increase the font size */
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  margin-top: 30px; /* Add space above the button */
+  align-self: center; /* Center the button */
+  transition: background-color 0.3s;
+}
 
-  button[type='submit'] {
-    font-size: 16px;
-  }
+.start-timer-button:hover {
+  background-color: #333;
+}
+
+.burger-menu {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #000;
+}
+
+/* SetTimer.css */
+.arrow-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 20px;
+  padding: 0;
+  color: #000; /* Set the arrow color to black */
+}
+
+.arrow-button:hover {
+  color: #333; /* Change color slightly on hover for better interactivity */
 }

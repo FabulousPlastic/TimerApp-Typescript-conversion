@@ -12,7 +12,7 @@ const DigitalTimer = ({ onCancel }) => {
     resetTimer,
   } = useContext(TimerContext);
 
-  const timeString = timeValues.toString(['hours', 'minutes', 'seconds']);
+  const timeString = timeValues.toString(['minutes', 'seconds']);
 
   return (
     <div className="digital-timer">
