@@ -4,60 +4,56 @@ import useTimer from 'easytimer-react-hook';
 
 export const TimerContext = createContext();
 
-export const TimerProvider = ({ children, timerSettings, onFinish }) => {
-  const [timer] = useTimer();
+export const TimerProvider = ({ children, timerSettings = {}, onFinish }) => {
+  const {
+    totalWorkSeconds = 0,
+    totalPauseSeconds = 0,
+    repeats = 1,
+  } = timerSettings;
+
   const [currentRepeat, setCurrentRepeat] = useState(1);
   const [isPauseMode, setIsPauseMode] = useState(false);
-  const [timeValues, setTimeValues] = useState({ minutes: 0, seconds: 0 });
 
-  const startWorkTimer = useCallback(() => {
-    const { totalWorkSeconds } = timerSettings;
-
-    const workMinutes = Math.floor(totalWorkSeconds / 60);
-    const workSeconds = totalWorkSeconds % 60;
-
-    timer.start({
-      countdown: true,
-      startValues: {
-        minutes: workMinutes,
-        seconds: workSeconds,
-      },
-    });
-  }, [timer, timerSettings]);
-
-  const startPauseTimer = useCallback(() => {
-    const { totalPauseSeconds } = timerSettings;
-
-    const pauseMinutes = Math.floor(totalPauseSeconds / 60);
-    const pauseSeconds = totalPauseSeconds % 60;
-
-    timer.start({
-      countdown: true,
-      startValues: {
-        minutes: pauseMinutes,
-        seconds: pauseSeconds,
-      },
-    });
-  }, [timer, timerSettings]);
+  // Initialize the timer with initial start values
+  const [timer, isTargetAchieved] = useTimer({
+    countdown: true,
+    startValues: {
+      seconds: totalWorkSeconds,
+    },
+    target: { seconds: 0 },
+    precision: 'seconds',
+    updateWhenTargetAchieved: true,
+  });
 
   const handleTargetAchieved = useCallback(() => {
     if (isPauseMode) {
-      if (currentRepeat < timerSettings.repeats) {
+      if (currentRepeat < repeats) {
         setCurrentRepeat((prev) => prev + 1);
         setIsPauseMode(false);
-        startWorkTimer();
+        timer.start({
+          countdown: true,
+          startValues: { seconds: totalWorkSeconds },
+        });
       } else {
+        timer.stop();
         onFinish();
       }
     } else {
-      if (timerSettings.totalPauseSeconds > 0) {
+      if (totalPauseSeconds > 0) {
         setIsPauseMode(true);
-        startPauseTimer();
+        timer.start({
+          countdown: true,
+          startValues: { seconds: totalPauseSeconds },
+        });
       } else {
-        if (currentRepeat < timerSettings.repeats) {
+        if (currentRepeat < repeats) {
           setCurrentRepeat((prev) => prev + 1);
-          startWorkTimer();
+          timer.start({
+            countdown: true,
+            startValues: { seconds: totalWorkSeconds },
+          });
         } else {
+          timer.stop();
           onFinish();
         }
       }
@@ -65,41 +61,48 @@ export const TimerProvider = ({ children, timerSettings, onFinish }) => {
   }, [
     isPauseMode,
     currentRepeat,
-    timerSettings,
+    repeats,
+    totalWorkSeconds,
+    totalPauseSeconds,
+    timer,
     onFinish,
-    startWorkTimer,
-    startPauseTimer,
   ]);
 
   useEffect(() => {
-    if (timerSettings) {
-      startWorkTimer();
+    timer.start();
+  }, [timer]);
+
+  useEffect(() => {
+    if (isTargetAchieved) {
+      handleTargetAchieved();
     }
+  }, [isTargetAchieved, handleTargetAchieved]);
 
-    const updateTimer = () => {
-      setTimeValues(timer.getTimeValues());
-    };
+  // Function to reset the timer
+  const resetTimer = useCallback(() => {
+    timer.reset(); 
+    setCurrentRepeat(1); 
+    setIsPauseMode(false);
 
-    timer.addEventListener('secondsUpdated', updateTimer);
-    timer.addEventListener('targetAchieved', handleTargetAchieved);
-
-    return () => {
-      timer.stop();
-      timer.removeEventListener('secondsUpdated', updateTimer);
-      timer.removeEventListener('targetAchieved', handleTargetAchieved);
-    };
-  }, [timer, timerSettings, startWorkTimer, handleTargetAchieved]);
+    // Restart the timer with initial work settings
+    timer.start({
+      countdown: true,
+      startValues: {
+        seconds: totalWorkSeconds,
+      },
+    });
+  }, [timer, totalWorkSeconds]);
 
   return (
     <TimerContext.Provider
       value={{
         timer,
-        timeValues,
+        timeValues: timer.getTimeValues(),
         currentRepeat,
         isPauseMode,
         timerSettings,
         stopTimer: timer.stop,
-        resetTimer: timer.reset,
+        resetTimer,
       }}
     >
       {children}

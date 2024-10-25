@@ -6,12 +6,12 @@ import '../Styles/AnalogTimer.css';
 
 const AnalogTimer = ({ onCancel }) => {
   const {
-    timer,
+    timer, 
     timeValues,
     currentRepeat,
     isPauseMode,
     timerSettings,
-    stopTimer,
+    resetTimer, 
   } = useContext(TimerContext);
 
   const totalTime = isPauseMode
@@ -68,11 +68,11 @@ const AnalogTimer = ({ onCancel }) => {
       </div>
       <button
         onClick={() => {
-          stopTimer();
-          onCancel();
+          resetTimer(); 
+          onCancel(); 
         }}
       >
-        Cancel Timer
+        Reset Timer
       </button>
     </div>
   );

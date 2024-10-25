@@ -5,15 +5,14 @@ import '../Styles/DigitalTimer.css';
 
 const DigitalTimer = ({ onCancel }) => {
   const {
-    // timer,
     timeValues,
     currentRepeat,
     isPauseMode,
     timerSettings,
-    stopTimer,
+    resetTimer,
   } = useContext(TimerContext);
 
-  const timeString = timeValues.toString();
+  const timeString = timeValues.toString(['hours', 'minutes', 'seconds']);
 
   return (
     <div className="digital-timer">
@@ -24,11 +23,11 @@ const DigitalTimer = ({ onCancel }) => {
       <div className="display">{timeString}</div>
       <button
         onClick={() => {
-          stopTimer();
-          onCancel();
+          resetTimer(); 
+          onCancel(); 
         }}
       >
-        Cancel Timer
+        Reset Timer
       </button>
     </div>
   );
