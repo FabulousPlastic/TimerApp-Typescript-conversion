@@ -26,11 +26,11 @@
   }
 }
 
-.alarm-view button {
+/* .alarm-view button {
   padding: 15px 30px;
   font-size: 18px;
   cursor: pointer;
-}
+} */
 
 @media (max-width: 480px) {
   .alarm-view h2 {

@@ -9,7 +9,6 @@ const Menu = ({ setCurrentView }) => {
 
   return (
     <div className="menu">
-      <h2>Select Timer View</h2>
       <button onClick={() => handleViewChange('analogTimer')}>Analog Timer</button>
       <button onClick={() => handleViewChange('digitalTimer')}>Digital Timer</button>
       <button onClick={() => handleViewChange('textTimer')}>Text Timer</button>

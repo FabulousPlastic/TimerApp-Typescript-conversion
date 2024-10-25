@@ -1,31 +1,80 @@
 /* App.css */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Bangers', cursive;
   background-color: #ecf0f1;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+/* App.css */
+/* App.css */
 button {
-  font-size: 18px;
-  padding: 10px 20px;
-  background-color: #000;
-  color: #fff;
-  border: none;
+  font-size: 20px;
+  padding: 12px 24px;
+  background-color: #fff;
+  color: #000;
+  border: 3px solid #000;
   border-radius: 8px;
+  font-family: 'Bangers', cursive; /* Sharp, comic-style font */
+  box-shadow: 4px 4px 0 #000;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-/* Hover effect */
+/* Comic-style halftone effect */
+button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, #000 10%, transparent 10%) 0 0 / 20px 20px;
+  opacity: 0.1;
+  z-index: 0;
+}
+
 button:hover {
-  background-color: #333;
+  background-color: #f0f0f0;
   transform: scale(1.05);
 }
 
 /* Active (push) effect */
 button:active {
-  transform: scale(0.95);
+  transform: scale(0.95) translate(2px, 2px);
+  box-shadow: 2px 2px 0 #000;
 }
+
+/* Text styling */
+button span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Additional styling for comic book-style borders */
+button.comic-outline {
+  border-style: double;
+  border-width: 4px;
+  border-radius: 0;
+}
+
+
+/* Text styling */
+button span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Additional styling for comic book-style borders */
+button.comic-outline {
+  border-style: double;
+  border-width: 4px;
+  border-radius: 0;
+}
+aaz
 
 /* Specific button styles (optional) */
 .burger-menu {

@@ -44,6 +44,10 @@ const SetTimer = ({ onStart, onMenu }) => {
         <div className="input-group">
           <label>Rondlängd:</label>
         </div>
+        <div className="time-labels">
+          <div className="time-label">Minuter</div>
+          <div className="time-label">Sekunder</div>
+        </div>
         <div className="time-input">
           <div
             className="scrollable-number"
@@ -86,10 +90,7 @@ const SetTimer = ({ onStart, onMenu }) => {
             </button>
           </div>
         </div>
-        <div className="time-labels">
-          <div className="time-label">Minuter</div>
-          <div className="time-label">Sekunder</div>
-        </div>
+
 
         <div className="input-group">
           <label>Paus:</label>
@@ -136,10 +137,10 @@ const SetTimer = ({ onStart, onMenu }) => {
             </button>
           </div>
         </div>
-        <div className="time-labels">
+        {/* <div className="time-labels">
           <div className="time-label">Minuter</div>
           <div className="time-label">Sekunder</div>
-        </div>
+        </div> */}
 
         <div className="input-group">
           <label>Antal ronder:</label>

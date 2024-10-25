@@ -1,15 +1,16 @@
 /* AnalogTimer.css */
 .analog-timer {
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .clock-analog-wrapper {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 20px 0;
+  /* position: relative; */
+  width: 80dvw;
+  height: auto;
+  /* margin: 20px 0; */
 }
 
 #clock-analog {
@@ -27,7 +28,7 @@
 }
 
 .second-arm {
-  stroke: red;
+  stroke: black;
   stroke-width: 2;
 }
 

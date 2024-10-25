@@ -41,7 +41,7 @@ const LoadingScreen = ({ onProceed }) => {
               rotate: [0, 10, -10, 10, -10, 20, -20, 20, -20, 30, -30, 30, -30, 30, -30, 30, -30, 40, -40, 40, -40, 50, -50, 50, -50, 0],
               opacity: [1, 1],
             }}
-            transition={{ duration: 2.5, ease: 'easeIn' }}
+            transition={{ duration: 2.2, ease: 'easeIn' }}
             onAnimationComplete={() => setShowCrash(true)}
           />
         )}

@@ -3,13 +3,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   height: 100vh;
   text-align: center;
   background-color: #f9f9f9;
   padding: 30px;
   box-sizing: border-box;
   position: relative;
+  font-size: 36px;
 }
 
 .input-group {
@@ -28,6 +29,7 @@
   justify-content: space-around;
   gap: 40px; /* Match the gap with time-input */
   margin-bottom: 30px; /* Add more space below labels */
+  font-size: 36px;
 }
 
 .scrollable-number {
@@ -49,27 +51,19 @@
 .arrow-button {
   cursor: pointer;
   background: none;
-  border: none;
+  border: 1px solid #000; /* Add border to the arrow buttons */
   font-size: 20px;
   padding: 0;
+  /* margin-bottom: 20px; */
 }
 
 .start-timer-button {
-  padding: 20px 40px; /* Add more padding for a bigger button */
-  font-size: 20px; /* Increase the font size */
-  cursor: pointer;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  margin-top: 30px; /* Add space above the button */
-  align-self: center; /* Center the button */
-  transition: background-color 0.3s;
+  margin-top: 30px;
+  margin-bottom: auto;
+  align-self: center; 
 }
 
-.start-timer-button:hover {
-  background-color: #333;
-}
+
 
 .burger-menu {
   position: absolute;
@@ -82,16 +76,4 @@
   color: #000;
 }
 
-/* SetTimer.css */
-.arrow-button {
-  cursor: pointer;
-  background: none;
-  border: none;
-  font-size: 20px;
-  padding: 0;
-  color: #000; /* Set the arrow color to black */
-}
 
-.arrow-button:hover {
-  color: #333; /* Change color slightly on hover for better interactivity */
-}

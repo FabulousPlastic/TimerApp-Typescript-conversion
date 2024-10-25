@@ -1,31 +1,18 @@
 /* src/Styles/Menu.css */
 .menu {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5dvh;
   text-align: center;
-  padding: 20px;
 }
 
-.menu h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
+
+  .menu button:nth-child(1) {
+    margin-top: auto;
+}
+.menu button:nth-child(4) {
+  margin-bottom: 20dvh;
 }
 
-.menu button {
-  display: block;
-  width: 80%;
-  padding: 15px;
-  font-size: 18px;
-  margin: 10px auto;
-  cursor: pointer;
-}
-
-@media (max-width: 480px) {
-  .menu h2 {
-    font-size: 20px;
-  }
-
-  .menu button {
-    width: 90%;
-    padding: 12px;
-    font-size: 16px;
-  }
-}
