@@ -26,7 +26,10 @@ const App = () => {
 
   const handleFinish = () => setCurrentView('alarm');
 
-  const handleRestart = () => setCurrentView('setTimer');
+  const handleRestart = () => {
+    setTimerSettings(null);
+    setCurrentView('setTimer');
+  };
 
   const handleMenu = () => setCurrentView('menu');
 

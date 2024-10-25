@@ -9,25 +9,35 @@ import timeLogoImage from '../Assets/timeLogo.png';
 import timeLogoCrashImage from '../Assets/timeLogoCrash.png';
 
 const AlarmView = ({ onRestart }) => {
-  const [showOut, setShowOut] = useState(false);
-  const [showOf, setShowOf] = useState(false);
-  const [showLogo, setShowLogo] = useState(false);
+  const [animationPhase, setAnimationPhase] = useState(0); // Track animation phases
   const [isCrashed, setIsCrashed] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const handleLogoClick = () => {
-    // Trigger the crash animation
-    setIsCrashed(true);
+    if (!isTransitioning) {
+      // Trigger the crash animation
+      setIsTransitioning(true);
+      setIsCrashed(true);
 
-    // Delay before transitioning to setTimer
-    setTimeout(() => {
+      // Delay before transitioning to setTimer
+      setTimeout(() => {
+        onRestart();
+      }, 1000); // 1000ms delay to let the animation finish
+    }
+  };
+
+  const handleReset = () => {
+    if (!isTransitioning) {
+      // Prevent further triggers
+      setIsTransitioning(true);
       onRestart();
-    }, 1000); // 1000ms delay for the crash animation to play
+    }
   };
 
   return (
     <div className="alarm-view">
       <AnimatePresence>
-        {!showOut && !showOf && !showLogo && (
+        {animationPhase === 0 && (
           <motion.img
             key="youre"
             src={youreImage}
@@ -36,11 +46,11 @@ const AlarmView = ({ onRestart }) => {
             initial={{ scale: 20, opacity: 1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1, ease: 'easeInOut' }}
-            onAnimationComplete={() => setShowOut(true)}
+            onAnimationComplete={() => setAnimationPhase(1)}
           />
         )}
 
-        {showOut && !showOf && !showLogo && (
+        {animationPhase === 1 && (
           <motion.img
             key="out"
             src={outImage}
@@ -49,11 +59,11 @@ const AlarmView = ({ onRestart }) => {
             initial={{ scale: 20, opacity: 1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1, ease: 'easeInOut' }}
-            onAnimationComplete={() => setShowOf(true)}
+            onAnimationComplete={() => setAnimationPhase(2)}
           />
         )}
 
-        {showOf && !showLogo && (
+        {animationPhase === 2 && (
           <motion.img
             key="of"
             src={ofImage}
@@ -62,11 +72,11 @@ const AlarmView = ({ onRestart }) => {
             initial={{ scale: 20, opacity: 1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1, ease: 'easeInOut' }}
-            onAnimationComplete={() => setShowLogo(true)}
+            onAnimationComplete={() => setAnimationPhase(3)}
           />
         )}
 
-        {showLogo && !isCrashed && (
+        {animationPhase === 3 && !isCrashed && (
           <motion.img
             key="timeLogo"
             src={timeLogoImage}
@@ -96,7 +106,7 @@ const AlarmView = ({ onRestart }) => {
           />
         )}
       </AnimatePresence>
-      <button className="reset-button" onClick={onRestart}>
+      <button className="reset-button" onClick={handleReset}>
         Reset
       </button>
     </div>
