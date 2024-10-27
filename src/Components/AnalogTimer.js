@@ -4,29 +4,29 @@ import { TimerContext } from '../Context/TimerContext';
 import { motion } from 'framer-motion';
 import '../Styles/AnalogTimer.css';
 
+// AnalogTimer component displays a visual clock with timer arms and repeat counter
 const AnalogTimer = ({ onCancel }) => {
-  const {
-    timeValues,
-    currentRepeat,
-    isPauseMode,
-    timerSettings,
-    resetTimer,
-  } = useContext(TimerContext);
+  const { timeValues, currentRepeat, isPauseMode, timerSettings, resetTimer } = useContext(TimerContext);
 
-  
+  // Calculate degrees for second and minute hands
   const secondDegrees = timeValues.seconds * 6;
   const minuteDegrees = (timeValues.minutes % 60) * 6 + (timeValues.seconds / 60) * 6;
 
   return (
     <div className="analog-timer">
+      {/* Display mode indicator (Work or Pause) */}
       <h2>{isPauseMode ? 'Pause' : 'Work'}</h2>
+      
+      {/* Display current repeat count */}
       <div className="repeat-counter">
         Repeat {currentRepeat}/{timerSettings.repeats}
       </div>
+
+      {/* Analog clock display */}
       <div className="clock-analog-wrapper">
         <svg id="clock-analog" xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 600 600">
           <g id="face">
-            {/* Generate 60 tick marks */}
+            {/* Generate clock tick marks */}
             {[...Array(60)].map((_, i) => (
               <line
                 key={i}
@@ -40,7 +40,10 @@ const AnalogTimer = ({ onCancel }) => {
             ))}
             <circle className="mid-circle" cx="300" cy="300" r="10"/>
           </g>
+          
+          {/* Animated clock hands */}
           <g id="hands">
+            {/* Second hand */}
             <motion.line
               className="second-arm"
               x1="300"
@@ -58,6 +61,8 @@ const AnalogTimer = ({ onCancel }) => {
                 damping: 20,
               }}
             />
+
+            {/* Minute hand */}
             <motion.line
               className="minute-arm"
               x1="300"
@@ -78,6 +83,8 @@ const AnalogTimer = ({ onCancel }) => {
           </g>
         </svg>
       </div>
+
+      {/* Reset button to stop and reset the timer */}
       <button
         onClick={() => {
           resetTimer();

@@ -15,21 +15,20 @@
 
 .input-group {
   margin-top: 5dvh;
-  margin-bottom: 1dvh; /* Increase spacing between input groups */
+  margin-bottom: 1dvh; 
 }
 
 .time-input {
   display: flex;
   justify-content: space-around;
-  /* gap: 40px;  */
-  margin-bottom: 10px; /* Increase spacing from the next section */
+  margin-bottom: 10px;
 }
 
 .time-labels {
   display: flex;
   justify-content: space-around;
-  gap: 40px; /* Match the gap with time-input */
-  margin-bottom: 30px; /* Add more space below labels */
+  gap: 40px;
+  margin-bottom: 30px;
   font-size: 36px;
 }
 
@@ -40,17 +39,17 @@
 }
 
 .number-display {
-  font-size: 36px; /* Increase font size for better readability */
+  font-size: 36px; 
   font-weight: bold;
   margin: 10px 0;
 }
 
 .time-label {
-  font-size: 18px; /* Increase the font size of labels */
+  font-size: 18px;
 }
 
 .arrow-button {
-  border: 1px solid #000; /* Add border to the arrow buttons */
+  border: 1px solid #000;
   font-size: 24px;
   padding-top: 0px;
   padding-bottom: 0px;

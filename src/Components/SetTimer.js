@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import '../Styles/SetTimer.css';
 
+// SetTimer component configures timer intervals and repetitions
 const SetTimer = ({ onStart, onMenu }) => {
   const [workMinutes, setWorkMinutes] = useState(0);
   const [workSeconds, setWorkSeconds] = useState(0);
@@ -9,9 +10,9 @@ const SetTimer = ({ onStart, onMenu }) => {
   const [pauseSeconds, setPauseSeconds] = useState(0);
   const [repeats, setRepeats] = useState(1);
 
+  // Handle form submission to start timer with settings
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const totalWorkSeconds = workMinutes * 60 + workSeconds;
     const totalPauseSeconds = pauseMinutes * 60 + pauseSeconds;
 
@@ -33,6 +34,7 @@ const SetTimer = ({ onStart, onMenu }) => {
     onStart(timerSettings);
   };
 
+  // Increment/decrement timer values with scroll
   const handleScroll = (setter, value, delta) => {
     const newValue = Math.max(0, value + delta);
     setter(newValue);
@@ -41,6 +43,7 @@ const SetTimer = ({ onStart, onMenu }) => {
   return (
     <div className="set-timer">
       <form onSubmit={handleSubmit}>
+        {/* Work time input */}
         <div className="input-group">
           <label>Rondlängd:</label>
         </div>
@@ -53,19 +56,11 @@ const SetTimer = ({ onStart, onMenu }) => {
             className="scrollable-number"
             onWheel={(e) => handleScroll(setWorkMinutes, workMinutes, e.deltaY < 0 ? 1 : -1)}
           >
-            <button
-              type="button"
-              className="arrow-button"
-              onClick={() => setWorkMinutes(workMinutes + 1)}
-            >
+            <button type="button" className="arrow-button" onClick={() => setWorkMinutes(workMinutes + 1)}>
               &#708;
             </button>
             <div className="number-display">{workMinutes}</div>
-            <button
-              type="button"
-              className="arrow-button"
-              onClick={() => setWorkMinutes(Math.max(0, workMinutes - 1))}
-            >
+            <button type="button" className="arrow-button" onClick={() => setWorkMinutes(Math.max(0, workMinutes - 1))}>
               &#709;
             </button>
           </div>
@@ -73,25 +68,17 @@ const SetTimer = ({ onStart, onMenu }) => {
             className="scrollable-number"
             onWheel={(e) => handleScroll(setWorkSeconds, workSeconds, e.deltaY < 0 ? 1 : -1)}
           >
-            <button
-              type="button"
-              className="arrow-button"
-              onClick={() => setWorkSeconds(workSeconds + 1)}
-            >
+            <button type="button" className="arrow-button" onClick={() => setWorkSeconds(workSeconds + 1)}>
               &#708;
             </button>
             <div className="number-display">{workSeconds}</div>
-            <button
-              type="button"
-              className="arrow-button"
-              onClick={() => setWorkSeconds(Math.max(0, workSeconds - 1))}
-            >
+            <button type="button" className="arrow-button" onClick={() => setWorkSeconds(Math.max(0, workSeconds - 1))}>
               &#709;
             </button>
           </div>
         </div>
 
-
+        {/* Pause time input */}
         <div className="input-group">
           <label>Paus:</label>
         </div>
@@ -100,19 +87,11 @@ const SetTimer = ({ onStart, onMenu }) => {
             className="scrollable-number"
             onWheel={(e) => handleScroll(setPauseMinutes, pauseMinutes, e.deltaY < 0 ? 1 : -1)}
           >
-            <button
-              type="button"
-              className="arrow-button"
-              onClick={() => setPauseMinutes(pauseMinutes + 1)}
-            >
+            <button type="button" className="arrow-button" onClick={() => setPauseMinutes(pauseMinutes + 1)}>
               &#708;
             </button>
             <div className="number-display">{pauseMinutes}</div>
-            <button
-              type="button"
-              className="arrow-button"
-              onClick={() => setPauseMinutes(Math.max(0, pauseMinutes - 1))}
-            >
+            <button type="button" className="arrow-button" onClick={() => setPauseMinutes(Math.max(0, pauseMinutes - 1))}>
               &#709;
             </button>
           </div>
@@ -120,49 +99,31 @@ const SetTimer = ({ onStart, onMenu }) => {
             className="scrollable-number"
             onWheel={(e) => handleScroll(setPauseSeconds, pauseSeconds, e.deltaY < 0 ? 1 : -1)}
           >
-            <button
-              type="button"
-              className="arrow-button"
-              onClick={() => setPauseSeconds(pauseSeconds + 1)}
-            >
+            <button type="button" className="arrow-button" onClick={() => setPauseSeconds(pauseSeconds + 1)}>
               &#708;
             </button>
             <div className="number-display">{pauseSeconds}</div>
-            <button
-              type="button"
-              className="arrow-button"
-              onClick={() => setPauseSeconds(Math.max(0, pauseSeconds - 1))}
-            >
+            <button type="button" className="arrow-button" onClick={() => setPauseSeconds(Math.max(0, pauseSeconds - 1))}>
               &#709;
             </button>
           </div>
         </div>
-        {/* <div className="time-labels">
-          <div className="time-label">Minuter</div>
-          <div className="time-label">Sekunder</div>
-        </div> */}
 
+        {/* Repeat count input */}
         <div className="input-group">
           <label>Antal ronder:</label>
         </div>
         <div className="scrollable-number">
-          <button
-            type="button"
-            className="arrow-button"
-            onClick={() => setRepeats(repeats + 1)}
-          >
+          <button type="button" className="arrow-button" onClick={() => setRepeats(repeats + 1)}>
             &#708;
           </button>
           <div className="number-display">{repeats}</div>
-          <button
-            type="button"
-            className="arrow-button"
-            onClick={() => setRepeats(Math.max(1, repeats - 1))}
-          >
+          <button type="button" className="arrow-button" onClick={() => setRepeats(Math.max(1, repeats - 1))}>
             &#709;
           </button>
         </div>
 
+        {/* Start timer button */}
         <button type="submit" className="start-timer-button">Hajime!</button>
       </form>
     </div>

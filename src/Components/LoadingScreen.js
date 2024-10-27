@@ -6,19 +6,16 @@ import iiItsImage from '../Assets/iiIts.png';
 import timeLogoImage from '../Assets/timeLogo.png';
 import timeLogoCrashImage from '../Assets/timeLogoCrash.png';
 
+// LoadingScreen component with animated sequence before proceeding
 const LoadingScreen = ({ onProceed }) => {
-  const [showCrash, setShowCrash] = useState(false);
-  const [showLogo, setShowLogo] = useState(false);
-  const [isCrashed, setIsCrashed] = useState(false);
+  const [showCrash, setShowCrash] = useState(false); // Controls transition to crash phase
+  const [showLogo, setShowLogo] = useState(false); // Controls logo visibility
+  const [isCrashed, setIsCrashed] = useState(false); // Tracks if crash animation is active
 
+  // Handles logo click to trigger crash and proceed
   const handleLogoClick = () => {
-    // Trigger the crash animation
     setIsCrashed(true);
-
-    // Add a delay before calling onProceed to transition to setTimer
-    setTimeout(() => {
-      onProceed();
-    }, 1000); // 1000ms delay to allow the animation to finish
+    setTimeout(() => onProceed(), 1000); // Delay for animation completion
   };
 
   return (
@@ -29,6 +26,7 @@ const LoadingScreen = ({ onProceed }) => {
       transition={{ duration: 0.0 }}
     >
       <AnimatePresence>
+        {/* Initial animation with "It's!" image */}
         {!showCrash && !isCrashed && (
           <motion.img
             key="iiIts"
@@ -42,10 +40,11 @@ const LoadingScreen = ({ onProceed }) => {
               opacity: [1, 1],
             }}
             transition={{ duration: 2.2, ease: 'easeIn' }}
-            onAnimationComplete={() => setShowCrash(true)}
+            onAnimationComplete={() => setShowCrash(true)} // Starts crash animation
           />
         )}
 
+        {/* Logo animation before crash */}
         {showCrash && !isCrashed && (
           <motion.img
             key="timeLogo"
@@ -56,10 +55,11 @@ const LoadingScreen = ({ onProceed }) => {
             animate={{ y: 0 }}
             transition={{ duration: 0.8, ease: 'easeIn', type: 'spring', stiffness: 300 }}
             onAnimationComplete={() => setShowLogo(true)}
-            onClick={handleLogoClick}
+            onClick={handleLogoClick} // Initiates crash on click
           />
         )}
 
+        {/* Crash animation for logo */}
         {showLogo && isCrashed && (
           <AnimatePresence>
             <motion.img

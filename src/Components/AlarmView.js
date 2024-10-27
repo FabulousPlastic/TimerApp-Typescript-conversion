@@ -8,35 +8,33 @@ import ofImage from '../Assets/of.png';
 import timeLogoImage from '../Assets/timeLogo.png';
 import timeLogoCrashImage from '../Assets/timeLogoCrash.png';
 
+// AlarmView component displays alarm animation and reset option
 const AlarmView = ({ onRestart }) => {
-  const [animationPhase, setAnimationPhase] = useState(0); // Track animation phases
-  const [isCrashed, setIsCrashed] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [animationPhase, setAnimationPhase] = useState(0); // Current phase in animation sequence
+  const [isCrashed, setIsCrashed] = useState(false); // Tracks if crash animation is active
+  const [isTransitioning, setIsTransitioning] = useState(false); // Prevents re-triggering animations
 
+  // Handles logo click to trigger crash animation and restart
   const handleLogoClick = () => {
     if (!isTransitioning) {
-      // Trigger the crash animation
       setIsTransitioning(true);
       setIsCrashed(true);
-
-      // Delay before transitioning to setTimer
-      setTimeout(() => {
-        onRestart();
-      }, 1000); // 1000ms delay to let the animation finish
+      setTimeout(() => onRestart(), 1000); // Delays restart to finish animation
     }
   };
 
-  const handleReset = () => {
-    if (!isTransitioning) {
-      // Prevent further triggers
-      setIsTransitioning(true);
-      onRestart();
-    }
-  };
+  // Handles immediate reset without animation
+  // const handleReset = () => {
+  //   if (!isTransitioning) {
+  //     setIsTransitioning(true);
+  //     onRestart();
+  //   }
+  // };
 
   return (
     <div className="alarm-view">
       <AnimatePresence>
+        {/* "You're" animation phase */}
         {animationPhase === 0 && (
           <motion.img
             key="youre"
@@ -46,10 +44,11 @@ const AlarmView = ({ onRestart }) => {
             initial={{ scale: 20, opacity: 1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1, ease: 'easeInOut' }}
-            onAnimationComplete={() => setAnimationPhase(1)}
+            onAnimationComplete={() => setAnimationPhase(1)} // Progresses to next phase
           />
         )}
 
+        {/* "Out" animation phase */}
         {animationPhase === 1 && (
           <motion.img
             key="out"
@@ -63,6 +62,7 @@ const AlarmView = ({ onRestart }) => {
           />
         )}
 
+        {/* "Of" animation phase */}
         {animationPhase === 2 && (
           <motion.img
             key="of"
@@ -76,6 +76,7 @@ const AlarmView = ({ onRestart }) => {
           />
         )}
 
+        {/* "Time Logo" animation phase */}
         {animationPhase === 3 && !isCrashed && (
           <motion.img
             key="timeLogo"
@@ -85,10 +86,11 @@ const AlarmView = ({ onRestart }) => {
             initial={{ y: -300, opacity: 1 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.8, ease: 'easeIn', type: 'spring', stiffness: 300 }}
-            onClick={handleLogoClick}
+            onClick={handleLogoClick} // Triggers crash on click
           />
         )}
 
+        {/* Crash animation for "Time Logo" */}
         {isCrashed && (
           <motion.img
             key="timeLogoCrash"
@@ -97,15 +99,12 @@ const AlarmView = ({ onRestart }) => {
             className="time-logo-crash"
             initial={{ scale: 1 }}
             animate={{ scale: [1, 1.2, 1], rotate: [-3, 3, -3, 0] }}
-            transition={{
-              duration: 0.5,
-              times: [0, 0.2, 0.5],
-              ease: 'easeIn',
-              repeat: 0,
-            }}
+            transition={{ duration: 0.5, times: [0, 0.2, 0.5], ease: 'easeIn' }}
           />
         )}
       </AnimatePresence>
+      
+      {/* Reset button to restart alarm */}
       {/* <button className="reset-button" onClick={handleReset}>
         Reset
       </button> */}
