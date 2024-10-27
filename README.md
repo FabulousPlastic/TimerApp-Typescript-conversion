@@ -16,6 +16,7 @@ A customizable timer application with multiple interactive views, built using Re
 ## Tech Stack
 
 - **React**: Component-based structure and state management.
+- **EasyTimer**: Making timers and state manegment of them a breeze...
 - **Framer Motion**: For seamless animations and transitions.
 - **CSS**: Custom styling with support for animations and responsive design.
 
