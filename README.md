@@ -1,8 +1,4 @@
-Here’s an updated README with the correct installation instructions for dependencies:
-
----
-
-# Timer App ⏲️
+# Hajime! Timer App
 
 A customizable timer application with multiple interactive views, built using React and Framer Motion. This app allows users to set work and pause intervals, cycle counts, and switch between Analog, Digital, and Text views, all while maintaining the timer state. The app includes animated transitions and engaging loading and alarm screens.
 
