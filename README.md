@@ -11,7 +11,6 @@ A customizable timer application with multiple interactive views, built using Re
   - **Digital View**: Shows the countdown in digital format.
   - **Text View**: A unique countdown with animated text.
 - **State Persistence**: Timer continues from where it left off even when switching views.
-- **Stylized Buttons**: 1950s comic-inspired button designs with hover and click animations.
 
 ## Tech Stack
 
