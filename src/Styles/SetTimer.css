@@ -14,13 +14,14 @@
 }
 
 .input-group {
-  margin-bottom: 20px; /* Increase spacing between input groups */
+  margin-top: 5dvh;
+  margin-bottom: 1dvh; /* Increase spacing between input groups */
 }
 
 .time-input {
   display: flex;
   justify-content: space-around;
-  gap: 40px; /* Increase gap between the time inputs */
+  /* gap: 40px;  */
   margin-bottom: 10px; /* Increase spacing from the next section */
 }
 
@@ -49,12 +50,12 @@
 }
 
 .arrow-button {
-  cursor: pointer;
-  background: none;
   border: 1px solid #000; /* Add border to the arrow buttons */
-  font-size: 20px;
-  padding: 0;
-  /* margin-bottom: 20px; */
+  font-size: 24px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .start-timer-button {
@@ -72,8 +73,9 @@
   font-size: 24px;
   cursor: pointer;
   background: none;
-  border: none;
+  border: 1px solid #000;
   color: #000;
+  margin: 3dvw;
 }
 
 

@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+Here’s an updated README with the correct installation instructions for dependencies:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# Timer App ⏲️
 
-In the project directory, you can run:
+A customizable timer application with multiple interactive views, built using React and Framer Motion. This app allows users to set work and pause intervals, cycle counts, and switch between Analog, Digital, and Text views, all while maintaining the timer state. The app includes animated transitions and engaging loading and alarm screens.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Loading and Alarm Screens**: Animated loading and alarm screens using dynamic PNG animations.
+- **Customizable Timer Settings**: Set work duration, pause duration, and repeat cycles.
+- **Multiple Timer Views**:
+  - **Analog View**: Displays a classic clock with animated hands.
+  - **Digital View**: Shows the countdown in digital format.
+  - **Text View**: A unique countdown with animated text.
+- **State Persistence**: Timer continues from where it left off even when switching views.
+- **Stylized Buttons**: 1950s comic-inspired button designs with hover and click animations.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+- **React**: Component-based structure and state management.
+- **Framer Motion**: For seamless animations and transitions.
+- **CSS**: Custom styling with support for animations and responsive design.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js and npm installed.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/timer-app.git
+   cd timer-app
+   ```
+2. Install dependencies:
+   ```bash
+   npm install react framer-motion easytimer-react-hook
+   ```
 
-### `npm run eject`
+### Running the App
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To start the app locally:
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Visit `http://localhost:3000` in your browser to view the app.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### File Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **src/Components**: Individual components for different views and screens.
+- **src/Context**: Context API for managing global timer state.
+- **src/Styles**: CSS files for styling components.
+- **src/Assets**: Images and logos used in animations.
 
-## Learn More
+## License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This project is licensed under the MIT License. See `LICENSE` for more details.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---

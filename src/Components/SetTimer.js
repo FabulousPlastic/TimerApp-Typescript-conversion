@@ -58,7 +58,7 @@ const SetTimer = ({ onStart, onMenu }) => {
               className="arrow-button"
               onClick={() => setWorkMinutes(workMinutes + 1)}
             >
-              ↑
+              &#708;
             </button>
             <div className="number-display">{workMinutes}</div>
             <button
@@ -66,7 +66,7 @@ const SetTimer = ({ onStart, onMenu }) => {
               className="arrow-button"
               onClick={() => setWorkMinutes(Math.max(0, workMinutes - 1))}
             >
-              ↓
+              &#709;
             </button>
           </div>
           <div
@@ -78,7 +78,7 @@ const SetTimer = ({ onStart, onMenu }) => {
               className="arrow-button"
               onClick={() => setWorkSeconds(workSeconds + 1)}
             >
-              ↑
+              &#708;
             </button>
             <div className="number-display">{workSeconds}</div>
             <button
@@ -86,7 +86,7 @@ const SetTimer = ({ onStart, onMenu }) => {
               className="arrow-button"
               onClick={() => setWorkSeconds(Math.max(0, workSeconds - 1))}
             >
-              ↓
+              &#709;
             </button>
           </div>
         </div>
@@ -105,7 +105,7 @@ const SetTimer = ({ onStart, onMenu }) => {
               className="arrow-button"
               onClick={() => setPauseMinutes(pauseMinutes + 1)}
             >
-              ↑
+              &#708;
             </button>
             <div className="number-display">{pauseMinutes}</div>
             <button
@@ -113,7 +113,7 @@ const SetTimer = ({ onStart, onMenu }) => {
               className="arrow-button"
               onClick={() => setPauseMinutes(Math.max(0, pauseMinutes - 1))}
             >
-              ↓
+              &#709;
             </button>
           </div>
           <div
@@ -125,7 +125,7 @@ const SetTimer = ({ onStart, onMenu }) => {
               className="arrow-button"
               onClick={() => setPauseSeconds(pauseSeconds + 1)}
             >
-              ↑
+              &#708;
             </button>
             <div className="number-display">{pauseSeconds}</div>
             <button
@@ -133,7 +133,7 @@ const SetTimer = ({ onStart, onMenu }) => {
               className="arrow-button"
               onClick={() => setPauseSeconds(Math.max(0, pauseSeconds - 1))}
             >
-              ↓
+              &#709;
             </button>
           </div>
         </div>
@@ -151,7 +151,7 @@ const SetTimer = ({ onStart, onMenu }) => {
             className="arrow-button"
             onClick={() => setRepeats(repeats + 1)}
           >
-            ↑
+            &#708;
           </button>
           <div className="number-display">{repeats}</div>
           <button
@@ -159,7 +159,7 @@ const SetTimer = ({ onStart, onMenu }) => {
             className="arrow-button"
             onClick={() => setRepeats(Math.max(1, repeats - 1))}
           >
-            ↓
+            &#709;
           </button>
         </div>
 

@@ -106,9 +106,9 @@ const AlarmView = ({ onRestart }) => {
           />
         )}
       </AnimatePresence>
-      <button className="reset-button" onClick={handleReset}>
+      {/* <button className="reset-button" onClick={handleReset}>
         Reset
-      </button>
+      </button> */}
     </div>
   );
 };
