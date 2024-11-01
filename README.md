@@ -15,9 +15,13 @@ A customizable timer application with multiple interactive views, built using Re
 ## Tech Stack
 
 - **React**: Component-based structure and state management.
-- **EasyTimer**: Making timers and state manegment of them a breeze...
+- **EasyTimer**: Making timers and state management of them a breeze.
 - **Framer Motion**: For seamless animations and transitions.
 - **CSS**: Custom styling with support for animations and responsive design.
+
+## TypeScript Version
+
+We are in the process of converting this project to TypeScript for improved type safety and maintainability. The TypeScript version will bring additional reliability, as TypeScript helps catch errors during development and makes the codebase easier to refactor and extend.
 
 ## Getting Started
 
@@ -34,7 +38,7 @@ A customizable timer application with multiple interactive views, built using Re
    ```
 2. Install dependencies:
    ```bash
-   npm install react framer-motion easytimer-react-hook
+   npm install
    ```
 
 ### Running the App
@@ -58,3 +62,6 @@ Visit `http://localhost:3000` in your browser to view the app.
 This project is licensed under the MIT License. See `LICENSE` for more details.
 
 ---
+
+**Note**: We are currently working on a separate branch to convert the entire codebase to TypeScript. This conversion aims to enhance type safety, making the project more robust and developer-friendly. Stay tuned for future updates!
+
